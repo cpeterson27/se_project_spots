@@ -1,9 +1,12 @@
 .page {
     background-color: #fcf5e5;
     min-height: 100vh;
+    font-family: Poppins, Arial, Helvetica, sans-serif;
 }
 
 .page__section {
-    max-width: 1200px;
+    max-width: 1280px;
     margin: 0 auto;
+    border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
+    padding-bottom: 40px;
 }
