@@ -20,6 +20,10 @@
     border: none;
     background-color: transparent;
     opacity: 40%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 350px;
 }
 
 .card__like-btn:hover {
@@ -33,11 +37,9 @@
     line-height: 1.2;
     font-size: 20px;
     color: #212121;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
+    white-space: nowrap;
 }
 
 @media screen and (max-width: 627px) {
@@ -45,13 +47,9 @@
         height: 288px;
     }
 
-    .cards__list {
-        gap: 22px;
-    }
-
     .card__title {
         font-size: 16px;
-        max-width: 288px;
+        max-width: 250px;
     }
 
     .card__like-btn {

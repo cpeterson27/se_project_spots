@@ -9,6 +9,7 @@
     border-radius: 8px;
     height: 190px;
     width: 190px;
+    object-fit: cover;
 }
 
 .profile__column {
@@ -27,6 +28,7 @@
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
+    max-width: 420px;
 }
 
 .profile__description {
@@ -76,6 +78,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 138px;
+    border: none;
 }
 
 .profile__add-btn:hover {

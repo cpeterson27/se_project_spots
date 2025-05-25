@@ -2,6 +2,7 @@
     background-color: #fcf5e5;
     min-height: 100vh;
     font-family: Poppins, Arial, Helvetica, sans-serif;
+    color: #212121;
 }
 
 .page__section {
@@ -9,4 +10,10 @@
     margin: 0 auto;
     border-bottom: 1px rgba(33, 33, 33, 0.4) solid;
     padding-bottom: 40px;
+}
+
+@media screen (max-width: 320px) {
+    .page__section {
+        padding-bottom: 20px;
+    }
 }
