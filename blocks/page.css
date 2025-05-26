@@ -12,7 +12,7 @@
     padding-bottom: 40px;
 }
 
-@media screen (max-width: 320px) {
+@media screen and (max-width: 320px) {
     .page__section {
         padding-bottom: 20px;
     }
