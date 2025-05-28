@@ -31,3 +31,7 @@ This project is made so all the elements are displayed correctly on popular scre
 This webpage is deployed to Github Pages
 
 -   [Deployment Link](https://cpeterson27.github.io/se_project_spots/)
+
+## Project Video
+
+-   [Project Link] (https://drive.google.com/file/d/1iE12RaqStH3Eu4W1LmCzqj3_A87c2_V-/view?usp=drive_link)
