@@ -1,0 +1,121 @@
+.modal {
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Poppins, sans-serif;
+    padding: 10px;
+}
+
+.modal__is-opened {
+    visibility: visible;
+}
+
+.modal__container {
+    max-width: 730px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 32px 50px;
+    position: relative;
+}
+
+.modal__close-btn {
+    position: absolute;
+    top: 32px;
+    right: 50px;
+    width: 40px;
+    height: 40px;
+    background-image: url("../images/Close\ Icon.svg");
+    border: none;
+    background-color: transparent;
+}
+
+.modal__title {
+    margin: 0 0 32px;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+.modal__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__label {
+    margin: 0 0 32px;
+}
+
+.modal__input {
+    display: block;
+    margin: 8px 0 0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1px;
+    border-radius: 8px;
+    border-color: rgba(#212121, 0, 0, 0.4);
+    border-width: 1px;
+    padding: 16px 12px;
+}
+
+.modal__input::placeholder {
+    color: #212121;
+    opacity: 30%;
+}
+
+.modal__submit-btn {
+    max-width: 156px;
+    width: 100%;
+    border-radius: 8px;
+    background-color: #212121;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 18px 58px;
+}
+
+@media screen and (max-width: 320px) {
+    .modal {
+        padding: 10px;
+    }
+
+    .modal__container {
+        padding: 0 0 12px;
+        max-width: 300px;
+        width: 100%;
+    }
+
+    .modal__close-btn {
+        top: 12px;
+        right: 12px;
+    }
+
+    .modal__title {
+        font-size: 20px;
+        margin: 22px 12px 24px;
+        max-width: 106px;
+    }
+
+    .modal__input {
+        margin: 8px 0 0;
+        font-size: 16px;
+    }
+
+    .modal__label {
+        padding: 0 12px;
+        font-size: 16px;
+        margin: 0 0 24px;
+    }
+    .modal__submit-btn {
+        max-width: none;
+    }
+}
