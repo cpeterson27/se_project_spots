@@ -11,10 +11,14 @@
     justify-content: center;
     font-family: Poppins, sans-serif;
     padding: 10px;
+    opacity: 0;
+    transition: visibility 0s linear 0.5s, opacity 0.5s linear;
 }
 
 .modal__is-opened {
     visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
 }
 
 .modal__container {
@@ -35,6 +39,7 @@
     background-image: url("../images/Close\ Icon.svg");
     border: none;
     background-color: transparent;
+    cursor: pointer;
 }
 
 .modal__title {
