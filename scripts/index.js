@@ -14,7 +14,7 @@ const profileDescriptionEl = document.querySelector(".profile__description");
 
 const addCardFormElement = newPostModal.querySelector(".modal__form");
 const nameInput = addCardFormElement.querySelector("#card-caption-input");
-const linkInput = addCardFormElement.querySelector(".card-image-input");
+const linkInput = addCardFormElement.querySelector("#card-image-input");
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
@@ -43,7 +43,7 @@ function handleEditProfileFormSubmit(evt) {
   console.log("submitting");
 }
 
-editProfileForm.addEventListener("submit");
+editProfileForm.addEventListener("submit", handleEditProfileFormSubmit);
 
 
 function handleAddCardFormSubmit(evt) {
