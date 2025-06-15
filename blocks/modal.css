@@ -45,6 +45,12 @@
     padding: 0;
 }
 
+.modal__close-btn:hover {
+    color: #212121;
+    opacity: 100%;
+    transition: opacity 0.2s ease;
+}
+
 .modal__title {
     margin: 0 0 32px;
     font-size: 32px;
