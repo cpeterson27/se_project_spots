@@ -42,26 +42,24 @@
     right: 50px;
     width: 40px;
     height: 40px;
-    background-image: url("../images/Close Icon.svg");
+    background-image: url("../images/Close-white.svg");
     border: none;
     background-color: transparent;
-    opacity: 40%;
     padding: 0;
 }
 
-.modal__close_type_preview {
+.modal__close-btn_type_preview {
     top: 0px;
     right: -52.5px;
-    /*set up correct background image*/
+    background-image: url("../images/Close-white.svg");
 }
 
 .modal__close-btn:hover {
     color: #212121;
     opacity: 100%;
+    background-image: url("../images/Close Icon.svg");
     transition: opacity 0.2s ease;
 }
-
-/*set up preview close button's hover state*/
 
 .modal__title {
     margin: 0 0 32px;
@@ -142,13 +140,19 @@
 }
 
 .modal__caption {
-    /* style correctly*/
+    position: absolute;
+    background-color: #212121;
     color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
 }
 
 @media screen and (max-width: 480px) {
-    .modal {
-        padding: 10px;
+    .modal__caption {
+        font-size: 16px;
     }
 
     .modal__container {
@@ -182,12 +186,16 @@
 
 @media screen and (max-width: 627px) {
     /*placed below the 480 media query to avoid being overwritten*/
-    .modal__close_type_preview {
+    .modal__close-btn_type_preview {
         top: -48px;
         right: 0;
     }
 
     .modal__image {
         max-width: unset;
+    }
+
+    .modal__caption {
+        font-size: 16px;
     }
 }
