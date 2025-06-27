@@ -42,7 +42,7 @@
     right: 50px;
     width: 40px;
     height: 40px;
-    background-image: url("../images/Close-white.svg");
+    background-image: url("../images/Close Icon..svg");
     border: none;
     background-color: transparent;
     padding: 0;
@@ -132,7 +132,7 @@
 
 .modal__image {
     max-width: 80vw;
-    min-height: 80vh;
+    max-height: 80vh;
     width: 100%;
     object-fit: contain;
     display: block;
