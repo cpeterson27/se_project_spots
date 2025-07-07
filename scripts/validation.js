@@ -10,13 +10,15 @@ const settings = {
 const showInputError = (formEl, inputEl, errorMsg, settings) => {
 const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
 errorMsgEl.textContent = errorMsg;
-inputEl.classList.add("modal__input_type_error");
+inputEl.classList.add(settings.inputErrorClass);
+errorMsgEl.classList.add(settings.errorClass);
 };
 
-const hideInputError = (formEl, inputEl) => {
+const hideInputError = (formEl, inputEl, settings) => {
 const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
 errorMsgEl.textContent = "";
-inputEl.classList.remove("modal__input_type_error");
+inputEl.classList.remove(settings.inputErrorClass);
+errorMsgEl.classList.remove(settings.errorClass);
 };
 
 const checkInputValidity = (formEl, inputEl, settings) => {
@@ -33,7 +35,7 @@ return inputList.some((input) => {
 });
 }
 
-const toggleButtonState = (inputList, buttonEl) => {
+const toggleButtonState = (inputList, buttonEl, settings) => {
 if (hasInvalidInput(inputList)) {
 disableButton(buttonEl, settings);
 } else {
@@ -42,7 +44,7 @@ disableButton(buttonEl, settings);
 }
 }
 
-const disableButton = (buttonEl, settings) => {
+const disableButton = (buttonEl) => {
   buttonEl.disabled = true;
   buttonEl.classList.add(settings.inactiveButtonClass);
 };

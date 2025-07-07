@@ -71,13 +71,13 @@ function getCardElement(data) {
   cardImageEl.alt = data.name;
   cardTitleEl.textContent = data.name;
 
-  const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
-  cardLikeBtnEl.addEventListener("click", () => {
+
+  cardLikeBtn.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active");
   });
 
-  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
-  cardDeleteBtnEl.addEventListener("click", () => {
+
+  cardDeleteBtn.addEventListener("click", () => {
     cardElement.remove();
   });
 
@@ -98,22 +98,41 @@ function getCardElement(data) {
 
 function openModal(modal) {
   modal.classList.add("modal__is-opened");
+  document.addEventListener("keydown" , handleEscapeKey);
+  modal.addEventListener("mousedown", handleOverlayClick);
 }
 
 function closeModal(modal) {
   modal.classList.remove("modal__is-opened");
+  document.removeEventListener("keydown", handleEscapeKey);
+  modal.removeEventListener("mousedown", handleOverlayClick);
+}
+
+function handleEscapeKey(evt) {
+  if (evt.key === "Escape") {
+    const openedModal = document.querySelector(".modal__is-opened");
+    if (openedModal) {
+      closeModal(openedModal);
+    }
+  }
+}
+
+function handleOverlayClick(evt) {
+  if (evt.target.classList.contains("modal__is-opened")) {
+    closeModal(evt.currentTarget);
+  }
 }
 
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput]);
+  toggleButtonState(editProfileForm, settings);
   openModal(editProfileModal);
 });
 
 profileAddBtn.addEventListener("click", function () {
   openModal(newPostModal);
-  addCardFormElement.reset();
 }
 );
 
@@ -147,8 +166,9 @@ disableButton(cardSubmitBtn, settings);
 
 const cardElement = getCardElement(inputValues);
 cardsList.prepend(cardElement);
+addCardFormElement.reset();
+resetValidation(addCardFormElement, [nameInput, linkInput]);
   closeModal(newPostModal);
-  addCardFormElement.reset();
 });
 
 
