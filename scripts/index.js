@@ -26,6 +26,7 @@ const initialCards = [
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/6-photo-by-moritz-feldmann-from-pexels.jpg",
 }];
 
+//Edit Profile elements
 const editProfileBtn = document.querySelector(".profile__edit-btn");
 const editProfileModal = document.querySelector("#edit-profile-modal");
 const editProfileCloseBtn = editProfileModal.querySelector(".modal__close-btn");
@@ -33,22 +34,29 @@ const editProfileForm = editProfileModal.querySelector(".modal__form");
 const editProfileNameInput = editProfileModal.querySelector("#profile-name-input");
 const editProfileDescriptionInput = editProfileModal.querySelector("#profile-description-input");
 
+//New post elements
 const profileAddBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 
+//Profile elements
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+//Modal elements
 const addCardFormElement = newPostModal.querySelector(".modal__form");
+const cardSubmitBtn = newPostModal.querySelector(".modal__submit-btn");
 const nameInput = addCardFormElement.querySelector("#card-caption-input");
 const linkInput = addCardFormElement.querySelector("#card-image-input");
 
+//Preview modal elements
 const previewModal = document.querySelector('#preview-modal');
 const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
 const previewImageEl = previewModal.querySelector('.modal__image');
 const previewCaptionEl = previewModal.querySelector('.modal__caption');
 
+// Template and cards list elements
+// Using querySelector to select the template and cards list
 const cardTemplate = document.querySelector("#card-template").content.querySelector(".card");
 const cardsList = document.querySelector(".cards__list");
 
@@ -99,6 +107,7 @@ function closeModal(modal) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput]);
   openModal(editProfileModal);
 });
 
@@ -130,7 +139,7 @@ editProfileForm.addEventListener("submit", function (evt) {
 
 addCardFormElement.addEventListener("submit", function (evt) {
   evt.preventDefault();
-
+disableButton(cardSubmitBtn, settings);
   const inputValues = {
     name: nameInput.value,
     link: linkInput.value
