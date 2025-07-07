@@ -25,17 +25,18 @@ const checkInputValidity = (formEl, inputEl, settings) => {
   if (!inputEl.validity.valid) {
     showInputError(formEl, inputEl, inputEl.validationMessage, settings);
   } else {
-    hideInputError(formEl, inputEl);
+    hideInputError(formEl, inputEl, settings);
   }
 };
 
 const hasInvalidInput = (inputList) => {
-return inputList.some((input) => {
-  return !input.validity.valid;
-});
-}
+return inputList.some((input) => !input.validity.valid);
+};
 
-const toggleButtonState = (inputList, buttonEl, settings) => {
+
+const toggleButtonState = (formEl, settings) => {
+  const inputList = Array.from(formEl.querySelectorAll(settings.inputSelector));
+const buttonEl = formEl.querySelector(settings.submitButtonSelector);
 if (hasInvalidInput(inputList)) {
 disableButton(buttonEl, settings);
 } else {

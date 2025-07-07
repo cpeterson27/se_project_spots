@@ -73,7 +73,7 @@ function getCardElement(data) {
 
 
   cardLikeBtn.addEventListener("click", () => {
-    cardLikeBtnEl.classList.toggle("card__like-btn_active");
+    cardLikeBtn.classList.toggle("card__like-btn_active");
   });
 
 
@@ -126,7 +126,7 @@ function handleOverlayClick(evt) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
-  resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput]);
+  resetValidation(editProfileForm, [editProfileNameInput, editProfileDescriptionInput], settings);
   toggleButtonState(editProfileForm, settings);
   openModal(editProfileModal);
 });
