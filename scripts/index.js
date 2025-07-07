@@ -167,7 +167,7 @@ disableButton(cardSubmitBtn, settings);
 const cardElement = getCardElement(inputValues);
 cardsList.prepend(cardElement);
 addCardFormElement.reset();
-resetValidation(addCardFormElement, [nameInput, linkInput]);
+resetValidation(addCardFormElement, [nameInput, linkInput], settings);
   closeModal(newPostModal);
 });
 
