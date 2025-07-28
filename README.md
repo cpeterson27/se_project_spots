@@ -24,6 +24,9 @@ This project is made so all the elements are displayed correctly on popular scre
 
 -   HTML
 -   CSS
+-   JAVASCRIPT
+-   WEBPACK
+-   NODE.JS
 -   Responsive Design
 
 ## Deployment
