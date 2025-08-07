@@ -7,6 +7,8 @@ export const settings = {
   errorClass: "modal__error",
 };
 
+export { resetValidation, toggleButtonState, disableButton, enableButton };
+
 const showInputError = (formEl, inputEl, errorMsg, settings) => {
   const errorMsgEl = formEl.querySelector(`#${inputEl.id}-error`);
   errorMsgEl.textContent = errorMsg;
@@ -39,14 +41,18 @@ const toggleButtonState = (formEl, settings) => {
   if (hasInvalidInput(inputList)) {
     disableButton(buttonEl, settings);
   } else {
-    buttonEl.disabled = false;
-    buttonEl.classList.remove(settings.inactiveButtonClass);
+   enableButton(buttonEl, settings);
   }
 };
 
-const disableButton = (buttonEl) => {
+const disableButton = (buttonEl, settings) => {
   buttonEl.disabled = true;
   buttonEl.classList.add(settings.inactiveButtonClass);
+};
+
+const enableButton = (buttonEl, settings) => {
+  buttonEl.disabled = false;
+  buttonEl.classList.remove(settings.inactiveButtonClass);
 };
 
 const resetValidation = (formEl, inputList, settings) => {
