@@ -166,6 +166,9 @@ function handleEscapeKey(evt) {
 
 function handleAvatarSubmit(evt) {
   evt.preventDefault();
+
+setButtonText(avatarSubmitBtn, true, "Save", "Saving...");
+
 const avatarUrl = avatarInput.value;
 
   if (!avatarUrl) {
@@ -186,14 +189,14 @@ const avatarUrl = avatarInput.value;
     avatarImg.src = data.avatar;
     closeModal(avatarModal);
     avatarForm.reset();
-    console.log(data.avatar);
-    enableButton(avatarSubmitBtn, settings);
   })
-  .catch((err) => {
-    console.log(err);
-    enableButton(avatarSubmitBtn, settings);
+  .catch(console.error)
+  .finally(() => {
+    enableButton(editProfileSubmitBtn, settings);
+    setButtonText(avatarSubmitBtn, false, "Save", "Saving...");
 });
 }
+
 function handleDeleteSubmit(evt) {
   evt.preventDefault();
 
@@ -209,21 +212,16 @@ function handleDeleteSubmit(evt) {
   .deleteCard(selectedCardId)
   .then((res) => {
     console.log(res.message);
-
-
     selectedCard.remove();
     selectedCard = null;
     selectedCardId = null;
-
    closeModal(deleteModal);
    alert("This post has been deleted");
   })
-  .catch((err) => {
-    console.log(err);
-  })
+  .catch(console.error)
     .finally(() => {
-      enableButton(deleteSubmitBtn, settings);
-      setButtonText(deleteSubmitBtn, false, "Delete", "Deleting...");
+      enableButton(editProfileSubmitBtn, settings);
+    setButtonText(deleteSubmitBtn, false, "Delete", "Deleting...");
 });
 }
 
@@ -270,30 +268,31 @@ editProfileForm.addEventListener("submit", function (evt) {
 
 
 const editProfileSubmitBtn = evt.submitter;
-setButtonText(editProfileSubmitBtn, true);
+setButtonText(editProfileSubmitBtn, true, "Save," "Saving...");
 
   api
-    .editUserInfo({ name: editProfileNameInput.value, about: editProfileDescriptionInput.value })
+    .editUserInfo({
+      name: editProfileNameInput.value,
+      about: editProfileDescriptionInput.value
+    })
     .then((data) => {
       profileNameEl.textContent = data.name;
       profileDescriptionEl.textContent = data.about;
       closeModal(editProfileModal);
-      console.log("submitting");
-      enableButton(editProfileSubmitBtn, settings);
     })
-    .catch((err) => {
-      console.log(err);
+   .catch(console.error)
+    .finally(() => {
       enableButton(editProfileSubmitBtn, settings);
-  })
-  .finally(() => {
-    setButtonText(editProfileSubmitBtn, false);
-  })
+      setButtonText(editProfileSubmitBtn, false, "Save", "Saving...");
+    });
 });
 
-//implement loading text for all other form submissions
 
 addCardFormElement.addEventListener("submit", function (evt) {
   evt.preventDefault();
+
+  setButtonText(cardSubmitBtn, true, "Create", "Saving...");
+
   disableButton(cardSubmitBtn, settings);
   const inputValues = {
     name: nameInput.value,
@@ -308,11 +307,11 @@ addCardFormElement.addEventListener("submit", function (evt) {
       addCardFormElement.reset();
       resetValidation(addCardFormElement, [nameInput, linkInput], settings);
       closeModal(newPostModal);
-      enableButton(cardSubmitBtn, settings);
     })
-    .catch((err) => {
-      console.log(err);
-      enableButton(cardSubmitBtn, settings);
+    .catch(console.error)
+    .finally(() => {
+      enableButton(editProfileSubmitBtn, settings);
+      setButtonText(cardSubmitBtn, false, "Create", "Saving...");
   });
 });
 
