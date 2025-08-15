@@ -268,7 +268,7 @@ editProfileForm.addEventListener("submit", function (evt) {
 
 
 const editProfileSubmitBtn = evt.submitter;
-setButtonText(editProfileSubmitBtn, true, "Save," "Saving...");
+setButtonText(editProfileSubmitBtn, true, "Save", "Saving...");
 
   api
     .editUserInfo({
